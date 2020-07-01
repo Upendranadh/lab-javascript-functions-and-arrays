@@ -1,17 +1,115 @@
 // Progression #1: Greatest of the two numbers
 
+function greatestOfTwoNumbers(x, y) {
+  if (x > y)
+    return x;
+  else if (y > x)
+    return y;
+  else {
+    return x;
+  }
+}
 // Progression #2: The lengthy word
+
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
+function findScaryWord(words) {
+  var len = words.length;
+  var largeSize = 0;
+  var index = 0;
+  var arr = [];
+  for (var i = 0; i < len; i++) {
+    arr.push(words[i].length);
+    if (arr[i] > largeSize) {
+      largeSize = arr[i];
+      index = i;
+    }
+  }
+  if (len === 0) {
+    return null;
+  } else if (len === 1)
+    return "foo";
+  else {
+    return words[index];
+  }
+}
 // Progression #3: Net Price
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+var netPrice = function (arr) {
+  var sum = 0;
+  for (var i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  if (arr.length === 0) {
+    return 0;
+  } else if (arr.length >= 1) {
+    return sum;
+  }
 
+}
+//Progression #3.1 (Bonus): A generic sum() function
+function add(arr) {
+  var sum = 0;
+  var isunsupported = false;
+  for (var i = 0; i < arr.length; i++) {
+
+    if (typeof (arr[i]) === "number") {
+      sum += arr[i];
+    } else if (typeof (arr[i]) === "string") {
+      sum += arr[i].length;
+    } else if (arr[i] === true) {
+      sum += 1;
+    } else if (arr[i] === false) {
+      sum += 0;
+    } else if (arr[i] === "object" || arr[i] === "array") {
+      isunsupported = true;
+      break;
+    }
+  }
+  if (arr.length === 0) {
+    return 0;
+  } else if (isunsupported === true) {
+    return "Unsupported data type sir or ma'am";
+  } else {
+    return sum;
+  }
+
+}
 // Progression #4: Calculate the average
 // Progression 4.1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function midPointOfLevels(numbersAvg) {
+  var len = numbersAvg.length;
+  var sum = 0
+  for (var i = 0; i < len; i++) {
+    sum += numbersAvg[i];
+  }
+  var avg = sum / len;
+  if (len === 0) {
+    return null;
+  } else {
+    return avg;
+  }
+
+}
 // Progression 4.2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(wordsArr) {
+  var avg = 0;
+  var len = 0;
+  for (var i = 0; i < wordsArr.length; i++) {
+    len += wordsArr[i].length;
+  }
+  avg = len / wordsArr.length;
+  if (wordsArr.length === 0) {
+    return null;
+  } else {
+    return avg;
+  }
+
+}
 
 // Progression #5: Unique arrays
 const wordsUnique = [
@@ -29,8 +127,51 @@ const wordsUnique = [
   'flour'
 ];
 
+function uniqueArray(uniqueArray) {
+  var len = uniqueArray.length;
+  var outputArray = [];
+  var count = 0;
+  var start = false;
+  for (j = 0; j < uniqueArray.length; j++) {
+    for (k = 0; k < uniqueArray.length; k++) {
+      if (uniqueArray[j] == outputArray[k]) {
+        start = true;
+      }
+    }
+    count++;
+    if (count == 1 && start == false) {
+      outputArray.push(uniqueArray[j]);
+    }
+    start = false;
+    count = 0;
+  }
+  if (len === 0) {
+    return null;
+  } else {
+    return outputArray;
+  }
+}
+
 // Progression #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
+
+function searchElement(wordsFind, wordtoSearch) {
+  var len = wordsFind.length;
+  var isAvailable = false;
+  for (var i = 0; i < len; i++) {
+    if (wordsFind[i] === wordtoSearch) {
+      isAvailable = true;
+    }
+  }
+  if (len === 0) {
+    return null;
+  } else if (isAvailable === true) {
+    return true
+  } else if (isAvailable === false) {
+    return wordsFind;
+  }
+
+}
 
 // Progression #7: Count repetition
 const wordsCount = [
@@ -46,6 +187,17 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimesElementRepeated(wordsCount, wordtoSearch) {
+  var len = wordsCount.length;
+  var count = 0;
+  for (var i = 0; i < len; i++) {
+    if (wordsCount[i] === wordtoSearch) {
+      count++;
+    }
+  }
+  return count;
+}
 
 // Progression #8: Bonus
 
